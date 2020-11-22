@@ -11,3 +11,5 @@ First is developing our own API enhancing the existing ecosystem of both financi
 Second is creative ways to use the money collected from this application. For example, we could start a micro-fund to loan to small businesses, who are focused on sustainability, or who may have been hurt by the rapid closing of in-person stores as a result of the pandemic
 
 Third, is to convert our web application, which is already focused specifically for mobile users, into a progressive web app which includes a highly accessible mobile widget.
+
+Youtube demo: https://youtu.be/yxMXOaX8OVM
