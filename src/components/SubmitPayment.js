@@ -39,8 +39,8 @@ export default function SubmitPayment() {
         const { status } = response;
         console.log("STATUS ", status);
         if (status === 200) {
-          dispatch(addOffset(product.price * 100));
-          dispatch(addEmmisions(-1 * (product.price * 100)));
+          dispatch(addOffset(product.price));
+          dispatch(addEmmisions(-1 * (product.price)));
         }
       })
       .catch((err) => console.log(err));
@@ -48,7 +48,17 @@ export default function SubmitPayment() {
   return (
     <div className="submitPaymentContainer">
       <FormControl fullWidth className="amount">
-        <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
+        <InputLabel
+          htmlFor="standard-adornment-amount"
+          style={{
+            fontFamily: "Bebas Neue",
+            fontSize: 20,
+            // backgroundColor: "#25acf5",
+            // textColor: "white",
+          }}
+        >
+          Amount
+        </InputLabel>
         <Input
           id="standard-adornment-amount"
           value={product.price}
@@ -67,8 +77,13 @@ export default function SubmitPayment() {
         <Button
           className="makePaymentButton"
           variant="contained"
-          color="primary"
+          // color="primary"
           size="small"
+          style={{
+            fontFamily: "Bebas Neue",
+            backgroundColor: "#25acf5",
+            textColor: "white",
+          }}
         >
           Purchase Offset
         </Button>

@@ -6,14 +6,12 @@ import { useDispatch } from "react-redux";
 import { addEmmisions, addOffset, addTransaction } from "../actions";
 
 export default function CarbonChart() {
-  const emission = useSelector((state) => state.carbonValues.emission);
-  const offset = useSelector((state) => state.carbonValues.offset);
+  const emission = useSelector((state) => state.carbonValues.emission); // dollar value of debt to pay
+  const amountPaid = useSelector((state) => state.carbonValues.offset); // dollar value of offsets paid
+  const amountRemaining = emission - amountPaid;
   let isSubscribed = useSelector((state) => state.isSubscribed);
-  const total = emission + offset;
   const dispatch = useDispatch();
-
-  const percentEmission = (emission / total).toFixed(2) * 100;
-  const percentOffset = (offset / total).toFixed(2) * 100;
+  
   const [pusher] = useState(
     new Pusher("5c419448d2783aa73354", {
       cluster: 'us3'
@@ -42,26 +40,22 @@ export default function CarbonChart() {
       addTransaction(transactions);
     }
   )});
+  
 
   const data = [
     {
-      name: "Emissions",
-      value: percentEmission,
+      name: "Remaining",
+      value: amountRemaining,
     },
     {
       name: "Offset",
-      value: percentOffset,
+      value: amountPaid,
     },
   ];
 
   return (
     <div className="chart-container">
-      <PieChart
-        className="recharts-pie-sector"
-        width={500}
-        height={250}
-        margin={1}
-      >
+      <PieChart className="recharts-pie-sector" width={500} height={250}>
         <Pie
           data={data}
           dataKey="value"
@@ -92,14 +86,15 @@ export default function CarbonChart() {
               <text
                 x={x}
                 y={y}
-                fill="white"
+                fill={data[index].name === "Remaining" ? "#fccf19" : "#25acf5"}
                 textAnchor={x > cx ? "start" : "end"}
-                dominantBaseline="central"
-                fontStyle="bold"
-                fontWeight={700}
+                dominantBaseline="middle"
+                // fontStyle="bold"
+                fontFamily="Bebas Neue"
+                // fontWeight={700}
                 fontSize={20}
               >
-                {data[index].name} ({value}%)
+                {data[index].name} (${value})
               </text>
             );
           }}

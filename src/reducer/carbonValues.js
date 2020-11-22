@@ -1,15 +1,18 @@
-const initialState = { emission: 0, offset: 1 };
+const initialState = { emission: 10, offset: 2 };
 
 export const carbonValues = (state = initialState, action) => {
-  console.log("top of reducer");
+  let newOffset = parseInt(state.offset) + parseInt(action.payload);
+  let newEmission = parseInt(state.emission) + parseInt(action.payload);
+
   switch (action.type) {
     case "ADD_OFFSET":
-      return { ...state, offset: state.offset + action.payload };
-    case "ADD_EMMISIONS":
-      return {...state, emission: state.emission + action.payload};
+      return { ...state, offset: newOffset };
+    case "ADD_EMISSIONS":
+      return { ...state, offset: newEmission };
     default:
       return state;
   }
 };
+
 
 export default carbonValues;

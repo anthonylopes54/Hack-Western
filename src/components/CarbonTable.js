@@ -12,17 +12,13 @@ import { useSelector } from "react-redux";
 const columns = [
   { id: "date", label: "Date", minWidth: 50 },
   { id: "item", label: "Item", minWidth: 50 },
-  { id: "carbonValue", label: "Carbon Value", minWidth: 80 },
+  { id: "carbonValue", label: "CO2 (kg)", minWidth: 80 },
   {
     id: "dollarValue",
-    label: "$",
+    label: "CO2 ($)",
     minWidth: 45,
   },
 ];
-
-function createData(date, item, carbonValue, dollarValue) {
-  return { date, item, carbonValue, dollarValue };
-}
 
 const useStyles = makeStyles({
   root: {
@@ -57,6 +53,7 @@ export default function CarbonTable() {
                       padding: 10,
                       paddingTop: 0,
                       paddingBottom: 0,
+                      fontFamily: "Bebas Neue",
                     }}
                   >
                     {column.label}
@@ -73,7 +70,11 @@ export default function CarbonTable() {
                       {columns.map((column) => {
                         const value = transaction[column.id];
                         return (
-                          <TableCell key={column.id} align={column.align}>
+                          <TableCell
+                            key={column.id}
+                            align={column.align}
+                            style={{ fontFamily: "Bebas Neue", fontSize: 15 }}
+                          >
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
