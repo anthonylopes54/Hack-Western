@@ -47,13 +47,14 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 200,
+    minHeight: 200,
   },
 });
 
 export default function CarbonTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(20);
 
   return (
     <div className="table-container">
