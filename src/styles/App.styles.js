@@ -1,20 +1,14 @@
 import styled from "styled-components";
 
 const AppStyles = styled.div`
-  .App {
-    background-color: #82ca9d;
-  }
   .background {
     z-index: -1;
-  }
-  .header {
-    text-align: center;
-    color: black;
   }
   .header-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
   }
   .chart-container {
     display: flex;
@@ -32,7 +26,7 @@ const AppStyles = styled.div`
     z-index: 2;
     position: absolute;
     left: 105px;
-    top: 142px;
+    top: 182px;
   }
   .table-container {
     display: flex;
