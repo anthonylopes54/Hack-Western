@@ -12,10 +12,10 @@ import { useSelector } from "react-redux";
 const columns = [
   { id: "date", label: "Date", minWidth: 50 },
   { id: "item", label: "Item", minWidth: 50 },
-  { id: "carbonValue", label: "Carbon (kg)", minWidth: 80 },
+  { id: "carbonValue", label: "CO2 (kg)", minWidth: 80 },
   {
     id: "dollarValue",
-    label: "Carbon ($)",
+    label: "CO2 ($)",
     minWidth: 45,
   },
 ];
