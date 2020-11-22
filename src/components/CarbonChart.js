@@ -3,21 +3,18 @@ import { PieChart, Pie } from "recharts";
 import { useSelector } from "react-redux";
 
 export default function CarbonChart() {
-  const emission = useSelector((state) => state.carbonValues.emission);  // dollar value
-  const offset = useSelector((state) => state.carbonValues.offset);      // dollar value
-  const total = emission + offset;
-
-  const percentEmission = (emission / total).toFixed(2) * 100;
-  const percentOffset = (offset / total).toFixed(2) * 100;
+  const emission = useSelector((state) => state.carbonValues.emission); // dollar value of debt to pay
+  const amountPaid = useSelector((state) => state.carbonValues.offset); // dollar value of offsets paid
+  const amountRemaining = emission - amountPaid;
 
   const data = [
     {
-      name: "emission",
-      value: percentEmission,
+      name: "Remaining",
+      value: amountRemaining,
     },
     {
-      name: "offset",
-      value: percentOffset,
+      name: "Offset",
+      value: amountPaid,
     },
   ];
 
@@ -59,15 +56,15 @@ export default function CarbonChart() {
               <text
                 x={x}
                 y={y}
-                fill={data[index].name === "emission" ? "#fccf19" : "#25acf5"}
+                fill={data[index].name === "Remaining" ? "#fccf19" : "#25acf5"}
                 textAnchor={x > cx ? "start" : "end"}
                 dominantBaseline="middle"
                 // fontStyle="bold"
                 fontFamily="Bebas Neue"
                 // fontWeight={700}
-                fontSize={21}
+                fontSize={20}
               >
-                {data[index].name} ({value}%)
+                {data[index].name} (${value})
               </text>
             );
           }}
