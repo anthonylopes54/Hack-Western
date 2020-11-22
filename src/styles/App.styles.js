@@ -66,9 +66,6 @@ const AppStyles = styled.div`
   .recharts-surface {
     max-width: 411px;
   }
-  .recharts-layer .recharts-pie-labels {
-    max-height: 250px;
-  }
 `;
 
 export default AppStyles;

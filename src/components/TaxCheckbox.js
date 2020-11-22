@@ -4,6 +4,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleCheckbox } from "../actions/index";
+import { Typography } from "@material-ui/core";
 
 export default function TaxCheckbox() {
   const [state, setState] = React.useState({
@@ -13,9 +14,7 @@ export default function TaxCheckbox() {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    console.log("clicked");
     setState({ ...state, [event.target.name]: event.target.checked });
-    console.log(state.checkedBox);
     dispatch(toggleCheckbox(state.checkedBox));
   };
 
@@ -39,7 +38,14 @@ export default function TaxCheckbox() {
             name="checkedBox"
           />
         }
-        label="Opt-In for Auto Offset Payments "
+        label={
+          <Typography
+            variant="subtitle"
+            style={{ fontFamily: "Bebas Neue", fontSize: 18, color: "black" }}
+          >
+            Opt-In for Offset Auto Payments
+          </Typography>
+        }
       />
     </div>
   );

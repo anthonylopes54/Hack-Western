@@ -15,7 +15,7 @@ const columns = [
   { id: "carbonValue", label: "Carbon Value", minWidth: 80 },
   {
     id: "dollarValue",
-    label: "$",
+    label: "$ Value",
     minWidth: 45,
   },
 ];
@@ -57,6 +57,7 @@ export default function CarbonTable() {
                       padding: 10,
                       paddingTop: 0,
                       paddingBottom: 0,
+                      fontFamily: "Bebas Neue",
                     }}
                   >
                     {column.label}
@@ -73,7 +74,11 @@ export default function CarbonTable() {
                       {columns.map((column) => {
                         const value = transaction[column.id];
                         return (
-                          <TableCell key={column.id} align={column.align}>
+                          <TableCell
+                            key={column.id}
+                            align={column.align}
+                            style={{ fontFamily: "Bebas Neue", fontSize: 15 }}
+                          >
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}

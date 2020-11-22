@@ -10,7 +10,12 @@ export default function CarbonSummary() {
     <div>
       <Typography
         variant="h5"
-        style={{ fontFamily: "Bebas Neue", marginLeft: 20, marginRight: 20 }}
+        style={{
+          fontFamily: "Bebas Neue",
+          marginLeft: 20,
+          marginRight: 20,
+          color: "#565656",
+        }}
       >
         Net Emissions: {carbonTotal} kg of CO2
       </Typography>
@@ -20,6 +25,7 @@ export default function CarbonSummary() {
           fontFamily: "Bebas Neue",
           marginLeft: 20,
           marginRight: 20,
+          color: "#565656",
         }}
       >
         That's the equivalent of {numTrees} trees
