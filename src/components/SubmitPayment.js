@@ -5,12 +5,16 @@ import FormControl from "@material-ui/core/FormControl";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
+import { useDispatch } from "react-redux";
+import { addOffset } from "../actions/index";
 
 export default function SubmitPayment() {
   const [product, setProduct] = useState({
     name: "Paying Offset",
     price: 0,
   });
+
+  const dispatch = useDispatch();
 
   const makePayment = (token) => {
     const body = {
@@ -33,6 +37,9 @@ export default function SubmitPayment() {
         console.log("Response ", response);
         const { status } = response;
         console.log("STATUS ", status);
+        if (status === 200) {
+          dispatch(addOffset(product.price * 100));
+        }
       })
       .catch((err) => console.log(err));
   };

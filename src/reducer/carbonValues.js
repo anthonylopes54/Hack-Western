@@ -1,9 +1,10 @@
-const initialState = { emission: 50, offset: 30 };
+const initialState = { emission: 0, offset: 1 };
 
 export const carbonValues = (state = initialState, action) => {
+  console.log("top of reducer");
   switch (action.type) {
-    case "ADD TO EMISSIONS":
-      return state;
+    case "ADD_OFFSET":
+      return { ...state, offset: state.offset + action.payload };
     default:
       return state;
   }
