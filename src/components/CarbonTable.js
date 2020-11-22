@@ -36,7 +36,8 @@ export default function CarbonTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(20);
 
   const transactions = useSelector((state) => state.transactions);
-
+  console.log(transactions);
+  console.log(typeof transactions)
   return (
     <div className="table-container">
       <Paper className={classes.root}>

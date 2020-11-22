@@ -3,13 +3,12 @@ export const addOffset = (payload) => ({
   payload,
 });
 
-export const toggleCheckbox = (payload) => ({
-  type: "TOGGLE_CHECKBOX",
-  payload,
+export const toggleCheckbox = () => ({
+  type: "TOGGLE_CHECKBOX"
 });
 
 export const addEmmisions = (payload) => ({
-  type: "ADD_EMMISIONS",
+  type: "ADD_EMISSIONS",
   payload,
 });
 

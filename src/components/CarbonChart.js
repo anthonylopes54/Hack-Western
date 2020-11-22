@@ -9,37 +9,9 @@ export default function CarbonChart() {
   const emission = useSelector((state) => state.carbonValues.emission); // dollar value of debt to pay
   const amountPaid = useSelector((state) => state.carbonValues.offset); // dollar value of offsets paid
   const amountRemaining = emission - amountPaid;
-  let isSubscribed = useSelector((state) => state.isSubscribed);
-  const dispatch = useDispatch();
-  
-  const [pusher] = useState(
-    new Pusher("5c419448d2783aa73354", {
-      cluster: 'us3'
-    })
-  );
-  const [channel] = useState(pusher.subscribe('my-channel'));
-  
-  useEffect(() => {
-    channel.bind('my-event', (data) => {
-      data = JSON.parse(data);
-      let transactions = [];
-      for (let i = 0; i < data.length; i++) {
-        if (isSubscribed)
-          dispatch(addOffset(data[i][0]))
-      
-        dispatch(addEmmisions(data[i][0]));
-
-       const transaction = {
-          date: "2020/11/22",
-          item: data[i][1],
-          carbonValue: data[i][2],
-          dollarValue: data[i][3]
-        }
-        transactions.push(transaction);
-      }
-      addTransaction(transactions);
-    }
-  )});
+  console.log('emission: ' + emission);
+  console.log('amountPaid: ' + amountPaid);
+  console.log('amountRemaining: ' + amountRemaining);
   
 
   const data = [

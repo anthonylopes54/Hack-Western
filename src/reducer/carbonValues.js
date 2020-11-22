@@ -1,4 +1,4 @@
-const initialState = { emission: 10, offset: 2 };
+const initialState = { emission: 32, offset: 11 };
 
 export const carbonValues = (state = initialState, action) => {
   let newOffset = parseInt(state.offset) + parseInt(action.payload);
@@ -8,7 +8,7 @@ export const carbonValues = (state = initialState, action) => {
     case "ADD_OFFSET":
       return { ...state, offset: newOffset };
     case "ADD_EMISSIONS":
-      return { ...state, offset: newEmission };
+      return { ...state, emission: newEmission };
     default:
       return state;
   }

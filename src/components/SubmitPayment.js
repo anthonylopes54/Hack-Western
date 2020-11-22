@@ -7,7 +7,6 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import { useDispatch } from "react-redux";
 import { addEmmisions, addOffset } from "../actions/index";
-import { addEmissions } from "../actions/index";
 
 export default function SubmitPayment() {
   const [product, setProduct] = useState({

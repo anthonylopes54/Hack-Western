@@ -7,8 +7,14 @@ import LottieSprout from "./components/LottieSprout";
 import TaxCheckbox from "./components/TaxCheckbox";
 import Header from "./components/Header";
 import SubmitPayment from "./components/SubmitPayment";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addEmmisions, addOffset, addTransaction } from "./actions";
+import Pusher from "pusher-js";
+import React, { useEffect, useState } from "react";
 
 function App() {
+  
   return (
     <AppStyles>
       <div className="App">
