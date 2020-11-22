@@ -46,6 +46,9 @@ const AppStyles = styled.div`
   .recharts-pie-sector:nth-child(even) {
     fill: #25acf5;
   }
+  .recharts-surface {
+    max-width: 411px;
+  }
 `;
 
 export default AppStyles;
