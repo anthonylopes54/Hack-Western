@@ -8,12 +8,18 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-lottie": "^1.2.3",
     "react-scripts": "4.0.0",
     "recharts": "^1.8.5",
     "styled-components": "^5.2.1",
+    "react-stripe-checkout": "^2.6.3",
+    "stripe": "^8.125.0",
+    "uuid": "^8.3.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
