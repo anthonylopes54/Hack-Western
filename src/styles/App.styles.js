@@ -11,17 +11,18 @@ const AppStyles = styled.div`
   }
   .submitPaymentContainer {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
   }
   .amount {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 2.5%;
+    width: 35%;
+    background-color: #c0f8fa;
   }
+
   .makePaymentButton {
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 10%;
   }
 
   .header-container {
@@ -46,13 +47,15 @@ const AppStyles = styled.div`
     z-index: 2;
     position: absolute;
     left: 105px;
-    top: 182px;
+    top: 162px;
   }
   .table-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin-left: 17px;
+    margin-right: 17px;
+    margin-bottom: 10px;
   }
   .recharts-pie-sector:nth-child(odd) {
     fill: #fccf19;
@@ -62,6 +65,9 @@ const AppStyles = styled.div`
   }
   .recharts-surface {
     max-width: 411px;
+  }
+  .recharts-layer .recharts-pie-labels {
+    max-height: 250px;
   }
 `;
 

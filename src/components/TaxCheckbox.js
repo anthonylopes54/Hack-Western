@@ -5,7 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 export default function TaxCheckbox() {
   const [state, setState] = React.useState({
-    checkedBox: true,
+    checkedBox: false,
   });
 
   const handleChange = (event) => {
@@ -15,7 +15,7 @@ export default function TaxCheckbox() {
 
   const YellowCheckbox = withStyles({
     root: {
-      color: "black",
+      color: "#fccf19",
       "&$checked": {
         color: "#fccf19",
       },

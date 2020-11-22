@@ -40,7 +40,6 @@ export default function CarbonTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(20);
 
   const transactions = useSelector((state) => state.transactions);
-  console.log(transactions);
 
   return (
     <div className="table-container">
@@ -53,7 +52,12 @@ export default function CarbonTable() {
                   <TableCell
                     key={column.id}
                     align={column.align}
-                    style={{ minWidth: column.minWidth }}
+                    style={{
+                      minWidth: column.minWidth,
+                      padding: 10,
+                      paddingTop: 0,
+                      paddingBottom: 0,
+                    }}
                   >
                     {column.label}
                   </TableCell>

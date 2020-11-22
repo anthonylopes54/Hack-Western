@@ -36,7 +36,7 @@ export default function CarbonChart() {
           cx="50%"
           cy="50%"
           innerRadius={60}
-          outerRadius={80}
+          outerRadius={93}
           fill=""
           label={({
             cx,
@@ -64,7 +64,7 @@ export default function CarbonChart() {
                 dominantBaseline="central"
                 fontStyle="bold"
                 fontWeight={700}
-                fontSize={22}
+                fontSize={20}
               >
                 {data[index].name} ({value}%)
               </text>
