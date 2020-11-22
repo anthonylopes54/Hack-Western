@@ -23,7 +23,7 @@ const initialState = [
 export const transactions = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TRANSACTION":
-      let temp = deepClone(state.transactions).push(action.payload);
+      let temp = clone(state.transactions).concat(action.payload);
       return {...state, transactions: temp};
     default:
       return state;
