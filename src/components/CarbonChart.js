@@ -20,12 +20,7 @@ export default function CarbonChart() {
 
   return (
     <div className="chart-container">
-      <PieChart
-        className="recharts-pie-sector"
-        width={500}
-        height={250}
-        margin={1}
-      >
+      <PieChart className="recharts-pie-sector" width={500} height={250}>
         <Pie
           data={data}
           dataKey="value"
