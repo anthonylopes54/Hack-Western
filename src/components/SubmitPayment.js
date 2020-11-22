@@ -38,7 +38,8 @@ export default function SubmitPayment() {
         const { status } = response;
         console.log("STATUS ", status);
         if (status === 200) {
-          dispatch(addOffset(product.price * 100));
+          console.log(product.price*100);
+          dispatch(addOffset(product.price));
         }
       })
       .catch((err) => console.log(err));

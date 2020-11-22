@@ -40,7 +40,6 @@ export default function TaxCheckbox() {
         }
         label={
           <Typography
-            variant="subtitle"
             style={{ fontFamily: "Bebas Neue", fontSize: 18, color: "black" }}
           >
             Opt-In for Offset Auto Payments
