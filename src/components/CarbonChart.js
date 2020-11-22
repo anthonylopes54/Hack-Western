@@ -7,17 +7,22 @@ export default function CarbonChart() {
   const offset = useSelector((state) => state.carbonValues.offset);
   const total = emission + offset;
 
-  const percentEmission = (emission / total).toFixed(2) * 100;
-  const percentOffset = (offset / total).toFixed(2) * 100;
+  // const amountPaid = (emission / total).toFixed(2) * 100;
+
+  const totalEmissions = 100;
+  // TOTAL Emissions
+  const amountPaid = 50 + 20;
+  // const amountRemaining = (offset / total).toFixed(2) * 100;
+  const amountRemaining = totalEmissions - amountPaid;
 
   const data = [
     {
       name: "emission",
-      value: percentEmission,
+      value: amountPaid,
     },
     {
       name: "offset",
-      value: percentOffset,
+      value: amountRemaining,
     },
   ];
 
@@ -67,7 +72,7 @@ export default function CarbonChart() {
                 // fontWeight={700}
                 fontSize={21}
               >
-                {data[index].name} ({value}%)
+                {data[index].name} ({value}$)
               </text>
             );
           }}

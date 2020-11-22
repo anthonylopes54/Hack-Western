@@ -1,4 +1,4 @@
-const initialState = { emission: 0, offset: 1 };
+const initialState = { emission: 2, offset: 1 };
 
 export const carbonValues = (state = initialState, action) => {
   switch (action.type) {
