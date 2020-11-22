@@ -20,10 +20,6 @@ const columns = [
   },
 ];
 
-function createData(date, item, carbonValue, dollarValue) {
-  return { date, item, carbonValue, dollarValue };
-}
-
 const useStyles = makeStyles({
   root: {
     width: "100%",
