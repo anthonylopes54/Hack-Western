@@ -12,11 +12,11 @@ export default function CarbonChart() {
 
   const data = [
     {
-      name: "Emissions",
+      name: "emission",
       value: percentEmission,
     },
     {
-      name: "Offset",
+      name: "offset",
       value: percentOffset,
     },
   ];
@@ -59,12 +59,13 @@ export default function CarbonChart() {
               <text
                 x={x}
                 y={y}
-                fill="white"
+                fill={data[index].name === "emission" ? "#fccf19" : "#25acf5"}
                 textAnchor={x > cx ? "start" : "end"}
-                dominantBaseline="central"
-                fontStyle="bold"
-                fontWeight={700}
-                fontSize={20}
+                dominantBaseline="middle"
+                // fontStyle="bold"
+                fontFamily="Bebas Neue"
+                // fontWeight={700}
+                fontSize={21}
               >
                 {data[index].name} ({value}%)
               </text>
