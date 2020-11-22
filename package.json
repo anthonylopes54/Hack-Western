@@ -21,6 +21,7 @@
     "react-thunk": "^1.0.0",
     "recharts": "^1.8.5",
     "redux": "^4.0.5",
+    "rfdc": "^1.1.4",
     "stripe": "^8.125.0",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.1",

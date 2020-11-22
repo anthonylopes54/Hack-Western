@@ -4,7 +4,6 @@ import { PieChart, Pie } from "recharts";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addEmmisions, addOffset } from "../actions";
-import { useSelector } from "react-redux";
 
 export default function CarbonChart() {
   const emission = useSelector((state) => state.carbonValues.emission);
@@ -24,19 +23,20 @@ export default function CarbonChart() {
   useEffect(() => {
     channel.bind('my-event', (data) => {
       data = JSON.parse(data);
+      for (let i = 0; i < data.length; i++) {
+        if (useSelector((state) => state.isSubscribed) )
+          dispatch(addOffset(data[i][0]))
       
-      if (useSelector((state) => state.isSubscribed) )
-        dispatch(addOffset(data[0]))
-      
-      dispatch(addEmmisions(data[0]));
+        dispatch(addEmmisions(data[i][0]));
 
-      const transaction = {
-        date: "2020/11/22",
-        item: data[1],
-        carbonValue: data[2],
-        dollarValue: data[3]
+       const transaction = {
+          date: "2020/11/22",
+          item: data[i][1],
+          carbonValue: data[i][2],
+          dollarValue: data[i][3]
+        }
+        addTransaction(transaction);
       }
-      addTransaction(transaction);
     }
   )});
 
