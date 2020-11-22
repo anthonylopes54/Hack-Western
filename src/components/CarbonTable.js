@@ -15,7 +15,7 @@ const columns = [
   { id: "carbonValue", label: "Carbon (kg)", minWidth: 80 },
   {
     id: "dollarValue",
-    label: "$ Value",
+    label: "Carbon ($)",
     minWidth: 45,
   },
 ];
