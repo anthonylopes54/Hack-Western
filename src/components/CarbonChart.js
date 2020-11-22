@@ -3,8 +3,8 @@ import { PieChart, Pie } from "recharts";
 import { useSelector } from "react-redux";
 
 export default function CarbonChart() {
-  const emission = useSelector((state) => state.carbonValues.emission);
-  const offset = useSelector((state) => state.carbonValues.offset);
+  const emission = useSelector((state) => state.carbonValues.emission);  // dollar value
+  const offset = useSelector((state) => state.carbonValues.offset);      // dollar value
   const total = emission + offset;
 
   const percentEmission = (emission / total).toFixed(2) * 100;
