@@ -11,6 +11,20 @@ const AppStyles = styled.div`
     text-align: center;
     color: black;
   }
+  .submitPaymentContainer {
+    display: flex;
+  }
+  .amount {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2.5%;
+  }
+  .makePaymentButton {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+  }
   .header-container {
     display: flex;
     justify-content: center;

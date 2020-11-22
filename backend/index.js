@@ -31,7 +31,7 @@ app.post('/payment', (req, res) => {
         source:token.id
     }).then(customer => {
         stripe.charges.create({
-            amount: product.price * 100,
+            amount: product.price / 100,
             currency: 'cad',
             customer: customer.id,
             description: product.name
