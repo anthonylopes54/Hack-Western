@@ -15,7 +15,7 @@ function App() {
         <Header />
         <Typography
           variant="h4"
-          style={{ fontFamily: "Bebas Neue", margin: 10 }}
+          style={{ fontFamily: "Bebas Neue", marginLeft: 20, marginRight: 20 }}
         >
           Your Carbon Footprint
         </Typography>
@@ -26,8 +26,8 @@ function App() {
         </div>
 
         <Typography
-          variant="h6"
-          style={{ fontFamily: "Bebas Neue", margin: 10 }}
+          variant="h5"
+          style={{ fontFamily: "Bebas Neue", marginLeft: 20, marginRight: 20 }}
         >
           Recent Transactions
         </Typography>
@@ -38,7 +38,6 @@ function App() {
         <SubmitPayment />
       </div>
     </AppStyles>
-
   );
 }
 

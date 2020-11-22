@@ -7,39 +7,22 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import { useSelector } from "react-redux";
 
 const columns = [
   { id: "date", label: "Date", minWidth: 50 },
   { id: "item", label: "Item", minWidth: 50 },
-  { id: "carbonValue", label: "Carbon Value", minWidth: 100 },
+  { id: "carbonValue", label: "Carbon Value", minWidth: 80 },
   {
     id: "dollarValue",
     label: "$",
-    minWidth: 50,
+    minWidth: 45,
   },
 ];
 
 function createData(date, item, carbonValue, dollarValue) {
   return { date, item, carbonValue, dollarValue };
 }
-
-const rows = [
-  createData("India", "IN", 13, 32),
-  createData("China", "CN", 14, 95),
-  createData("Italy", "IT", 60, 30),
-  createData("United States", "US", 32, 98),
-  createData("Canada", "CA", 37, 9),
-  createData("Australia", "AU", 25475400, 7692024),
-  createData("Germany", "DE", 83019200, 357578),
-  createData("Ireland", "IE", 4857000, 70273),
-  createData("Mexico", "MX", 126577691, 1972550),
-  createData("Japan", "JP", 126317000, 377973),
-  createData("France", "FR", 67022000, 640679),
-  createData("United Kingdom", "GB", 67545757, 242495),
-  createData("Russia", "RU", 146793744, 17098246),
-  createData("Nigeria", "NG", 200962417, 923768),
-  createData("Brazil", "BR", 210147125, 8515767),
-];
 
 const useStyles = makeStyles({
   root: {
@@ -55,6 +38,9 @@ export default function CarbonTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(20);
+
+  const transactions = useSelector((state) => state.transactions);
+  console.log(transactions);
 
   return (
     <div className="table-container">
@@ -75,18 +61,13 @@ export default function CarbonTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows
+              {transactions
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
+                .map((transaction, index) => {
                   return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
-                    >
+                    <TableRow hover role="checkbox" tabIndex={-1} key={index}>
                       {columns.map((column) => {
-                        const value = row[column.id];
+                        const value = transaction[column.id];
                         return (
                           <TableCell key={column.id} align={column.align}>
                             {column.format && typeof value === "number"
