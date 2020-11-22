@@ -5,6 +5,8 @@ export const carbonValues = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_OFFSET":
       return { ...state, offset: state.offset + action.payload };
+    case "ADD_EMMISIONS":
+      return {...state, emission: state.emission + action.payload};
     default:
       return state;
   }

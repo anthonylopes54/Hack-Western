@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import * as Pusher from "pusher";
 import { PieChart, Pie } from "recharts";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addEmmisions, addOffset } from "../actions";
 import { useSelector } from "react-redux";
 
 export default function CarbonChart() {
   const emission = useSelector((state) => state.carbonValues.emission);
   const offset = useSelector((state) => state.carbonValues.offset);
   const total = emission + offset;
+  const dispatch = useDispatch();
 
   const percentEmission = (emission / total).toFixed(2) * 100;
   const percentOffset = (offset / total).toFixed(2) * 100;
+  const [pusher] = useState(
+    new Pusher("5c419448d2783aa73354", {
+      cluster: 'us3'
+    })
+  );
+  const [channel] = useState(pusher.subscribe('my-channel'));
+  
+  useEffect(() => {
+    channel.bind('my-event', (data) => {
+      data = JSON.parse(data);
+      
+      if (useSelector((state) => state.isSubscribed) )
+        dispatch(addOffset(data[0]))
+      
+      dispatch(addEmmisions(data[0]));
+
+      const transaction = {
+        date: "2020/11/22",
+        item: data[1],
+        carbonValue: data[2],
+        dollarValue: data[3]
+      }
+      addTransaction(transaction);
+    }
+  )});
 
   const data = [
     {

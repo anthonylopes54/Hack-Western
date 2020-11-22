@@ -21,8 +21,9 @@ const initialState = [
 
 export const transactions = (state = initialState, action) => {
   switch (action.type) {
-    case "AB":
-      return [];
+    case "ADD_TRANSACTION":
+      let temp = deepCopy(state.transactions).push(action.payload);
+      return {...state, transactions: temp};
     default:
       return state;
   }

@@ -6,7 +6,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import { useDispatch } from "react-redux";
-import { addOffset } from "../actions/index";
+import { addEmmisions, addOffset } from "../actions/index";
+import { addEmissions } from "../actions/index";
 
 export default function SubmitPayment() {
   const [product, setProduct] = useState({
@@ -39,6 +40,7 @@ export default function SubmitPayment() {
         console.log("STATUS ", status);
         if (status === 200) {
           dispatch(addOffset(product.price * 100));
+          dispatch(addEmmisions(-1 * (product.price * 100)));
         }
       })
       .catch((err) => console.log(err));
