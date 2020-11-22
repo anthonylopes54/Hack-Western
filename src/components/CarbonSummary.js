@@ -12,7 +12,7 @@ export default function CarbonSummary() {
         variant="h5"
         style={{ fontFamily: "Bebas Neue", marginLeft: 20, marginRight: 20 }}
       >
-        Your Total Emissions: {carbonTotal} kg of CO2
+        Net Emissions: {carbonTotal} kg of CO2
       </Typography>
       <Typography
         variant="h5"
